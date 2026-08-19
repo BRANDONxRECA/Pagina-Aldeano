@@ -35,7 +35,11 @@
                         </li>                     
                     </ul>
                 </div>  
+<<<<<<< HEAD
                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#myModal">Acceder</button>                             
+=======
+                <button type="button" class="btn btn-outline-primary">Acceder</button>                             
+>>>>>>> 01b9f1d58e66cda803eb37d59c1f2140703b1f98
             </div>
         </nav>
         <!--Container-->
@@ -60,6 +64,7 @@
             </div>
         </div>
         <!--Modal-->
+<<<<<<< HEAD
         <div class="modal fade" id="myModal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -94,5 +99,7 @@
                 </div>
             </div>
         </div>
+=======
+>>>>>>> 01b9f1d58e66cda803eb37d59c1f2140703b1f98
     </body>
 </html>
