@@ -1,6 +1,5 @@
 
 
-/* Configuración del fondo general */
 body {
     /* Puedes cambiar la URL por tu propia imagen local (ej: url('../img/fondo-minecraft.jpg')) */
     background: url('pantallaapp.png') no-repeat center center fixed;
@@ -13,13 +12,11 @@ body {
     flex-direction: column;
 }
 
-/* Navbar estilo interfaz Minecraft (piedra/bloques) */
 .navbar {
     background-color: rgba(30, 30, 30, 0.95) !important;
     border-bottom: 4px solid #4e4e4e;
 }
 
-/* Contenedores con fondo semi-transparente oscuro */
 .mc-container {
     background: rgba(0, 0, 0, 0.75);
     border: 3px solid #5a5a5a;
@@ -30,7 +27,6 @@ body {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
-/* Botones con estilo Minecraft */
 .btn-minecraft {
     background-color: #5b8731;
     color: #ffffff;
@@ -44,7 +40,6 @@ body {
     color: #ffffff;
 }
 
-/* Footer pegado al final */
 footer {
     margin-top: auto;
     background-color: rgba(20, 20, 20, 0.95) !important;
