@@ -3,7 +3,7 @@
 /* Configuración del fondo general */
 body {
     /* Puedes cambiar la URL por tu propia imagen local (ej: url('../img/fondo-minecraft.jpg')) */
-    background: url('https://images.unsplash.com/photo-1627856013091-fed6e4e30025?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+    background: url('pantallaapp.png') no-repeat center center fixed;
     background-size: cover;
     font-family: 'VT323', monospace; /* Tipografía estilo pixel/retro */
     font-size: 1.25rem;
