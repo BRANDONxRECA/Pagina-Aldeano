@@ -49,6 +49,6 @@
                 <div class="col-4"></div>
             </div>
         </div>
-        <script src=""></script>
+        <script src="js/app.js"></script>
     </body>
 </html>
