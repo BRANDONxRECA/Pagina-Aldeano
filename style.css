@@ -1,0 +1,48 @@
+
+
+body {
+    /* Puedes cambiar la URL por tu propia imagen local (ej: url('../img/fondo-minecraft.jpg')) */
+    background: url('pantallaapp.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'VT323', monospace; /* Tipografía estilo pixel/retro */
+    font-size: 1.25rem;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    background-color: rgba(30, 30, 30, 0.95) !important;
+    border-bottom: 4px solid #4e4e4e;
+}
+
+.mc-container {
+    background: rgba(0, 0, 0, 0.75);
+    border: 3px solid #5a5a5a;
+    border-radius: 8px;
+    padding: 25px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+.btn-minecraft {
+    background-color: #5b8731;
+    color: #ffffff;
+    border: 2px solid #2d4614;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.btn-minecraft:hover {
+    background-color: #6da23a;
+    color: #ffffff;
+}
+
+footer {
+    margin-top: auto;
+    background-color: rgba(20, 20, 20, 0.95) !important;
+    border-top: 4px solid #333333;
+    padding: 15px 0;
+}
