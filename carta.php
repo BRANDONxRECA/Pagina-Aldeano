@@ -151,12 +151,63 @@
                 </div>
             </div>
         </div>
+<!--Modal Principal-->
         <div class="modal fade" id="myModal">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title">Autenticacion</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="row">
+                            <!-- Izquierda: Usuario / Crear cuenta -->
+                            <div class="col-sm-6 border-end">
+                                <h5>Usuario</h5>
+                                <form action="registro.php">
+                                    <div class="mb-3 mt-3">
+                                        <label for="emailUser" class="form-label">Email:</label>
+                                        <input type="email" class="form-control" id="emailUser" placeholder="Enter email" name="email">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mb-3">Crear cuenta</button>
+                                </form>
+                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesion</button>
+                            </div>
+
+                            <!-- Derecha: Trabajadores -->
+                            <div class="col-sm-6">
+                                <h5>Trabajadores</h5>
+                                <form action="trabajador.php">
+                                    <div class="mb-3 mt-3">
+                                        <label for="emailTrab" class="form-label">Email:</label>
+                                        <input type="email" class="form-control" id="emailTrab" placeholder="Enter email" name="email">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="pwdTrab" class="form-label">Password:</label>
+                                        <input type="password" class="form-control" id="pwdTrab" placeholder="Enter password" name="pswd">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Login</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal Inicio Sesion Usuario-->
+        <div class="modal fade" id="loginModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Inicio de sesion</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <!-- Modal body -->
@@ -180,20 +231,10 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal">Volver</button>
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="container-fluid bg-dark mt-auto py-3 text-white text-center">
-            <div class="row">
-                <div class="col-4"></div>
-                <div class="col-4" style="color:gray"><strong>MiEmpresa@2026</strong></div>
-                <div class="col-4"></div>
-            </div>
-        </div>
-
-        <script src="js/app.js"></script>
-    </body>
 </html>
