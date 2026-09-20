@@ -40,21 +40,16 @@
                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#myModal">Acceder</button>                             
             </div>
         </nav>
-        <!--Container-->
-        <div class="container-fluid bg-warning">
-            <a href="empresa.php">Ir a Empresa</a><br>
-            <a href="servicios.php">Ir a Servicios</a><br>
-            <a href="productos.php">Ir a Producto</a><br>
-            <a href="Contacto.php">Ir a Contacto</a><br>
-        </div>
         <!--Footer-->
-    <div class="container-fluid bg-dark mt-auto py-3 text-white text-center">
-        <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4" style="color:white"><strong>MiEmpresa@2026</strong></div>
-            <div class="col-4"></div>
+    <body>
+        <div class="container-fluid bg-dark mt-auto py-3 text-white text-center">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4" style="color:gray"><strong>MiEmpresa@2026</strong></div>
+                <div class="col-4"></div>
+            </div>
         </div>
-    </div>
+    </body>
         <!--Modal-->
         <div class="modal fade" id="myModal">
             <div class="modal-dialog">
