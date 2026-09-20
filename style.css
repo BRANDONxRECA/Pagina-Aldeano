@@ -2,7 +2,7 @@
 
 body {
     /* Puedes cambiar la URL por tu propia imagen local (ej: url('../img/fondo-minecraft.jpg')) */
-    background: url('pantallaapp.jpg') no-repeat center center fixed;
+    background: url('imagenes/pantallaapp.jpg') no-repeat center center fixed;
     background-size: cover;
     font-family: 'VT323', monospace; /* Tipografía estilo pixel/retro */
     font-size: 1.25rem;

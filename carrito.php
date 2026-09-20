@@ -41,6 +41,90 @@
                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#myModal">Acceder</button>                             
             </div>
         </nav>
+        <!-- CONTENEDORES SIMPLIFICADOS DEL CARRITO -->
+        <div class="container my-5 pt-2 flex-grow-1" style="max-width: 950px;">
+            <div class="row g-4">
+
+                <!-- COLUMNA IZQUIERDA -->
+                <div class="col-12 col-md-7 d-flex flex-column gap-3">
+                    
+                    <!-- 1. Canasta Actual -->
+                    <div class="p-3 rounded-3 text-white" style="background-color: rgba(18, 5, 10, 0.85);">
+                        <h6 class="text-warning fw-bold border-bottom border-secondary pb-2 mb-3">Canasta</h6>
+                        
+                        <div class="d-flex justify-content-between py-2 border-bottom border-secondary border-opacity-25">
+                            <span>Spaghetti Bolognesa</span>
+                            <div>
+                                <span class="text-warning me-2">$7.500</span>
+                                <a href="#" class="text-danger text-decoration-none">✕</a>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-between py-2">
+                            <span>Pizza Margarita</span>
+                            <div>
+                                <span class="text-warning me-2">$9.500</span>
+                                <a href="#" class="text-danger text-decoration-none">✕</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Pedido Actual Pagado -->
+                    <div class="p-3 rounded-3 text-white" style="background-color: rgba(18, 5, 10, 0.85);">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-success fw-bold small">Pedido en preparación</span>
+                            <span class="text-warning fw-bold">$10.500</span>
+                        </div>
+                        <p class="mb-0 small text-white-50">1x Lasaña de Carne, 1x Bebida</p>
+                    </div>
+
+                </div>
+
+                <!-- COLUMNA DERECHA -->
+                <div class="col-12 col-md-5 d-flex flex-column gap-3">
+
+                    <!-- 3. Total y Pago -->
+                    <div class="p-3 rounded-3 text-white" style="background-color: rgba(18, 5, 10, 0.85);">
+                        <div class="d-flex justify-content-between align-items-center border-bottom border-secondary pb-2 mb-3">
+                            <span class="fw-bold">Total</span>
+                            <span class="fs-5 fw-bold text-warning">$18.500</span>
+                        </div>
+
+                        <!-- Métodos de pago simples -->
+                        <form action="procesar_pago.php" method="POST">
+                            <div class="d-flex justify-content-between mb-3 small">
+                                <label><input type="radio" name="pago" value="tarjeta" checked> Tarjeta</label>
+                                <label><input type="radio" name="pago" value="transferencia"> Transferencia</label>
+                                <label><input type="radio" name="pago" value="efectivo"> Efectivo</label>
+                            </div>
+
+                            <button type="submit" class="btn btn-warning w-100 fw-bold btn-sm py-2">
+                                Pagar
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- 4. Historial (2 últimos) -->
+                    <div class="p-3 rounded-3 text-white" style="background-color: rgba(18, 5, 10, 0.85);">
+                        <div class="d-flex justify-content-between align-items-center mb-2 border-bottom border-secondary pb-1">
+                            <a href="historial.php" class="text-warning text-decoration-none fw-bold small">Ir al Historial →</a>
+                        </div>
+
+                        <div class="d-flex justify-content-between py-1 small border-bottom border-secondary border-opacity-25">
+                            <span class="text-white-50">1x Pizza Cuatro Quesos</span>
+                            <span class="text-warning">$10.900</span>
+                        </div>
+
+                        <div class="d-flex justify-content-between pt-1 small">
+                            <span class="text-white-50">2x Ravioles de Ricotta</span>
+                            <span class="text-warning">$16.400</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
         <!--Modal-->
         <div class="modal fade" id="myModal">
             <div class="modal-dialog">

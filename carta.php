@@ -42,6 +42,115 @@
             </div>
         </nav>
         <!--Modal-->
+        <div class="container my-5 pt-4">
+            <div class="card shadow-lg mx-auto border-0 text-white" 
+                style="max-width: 1100px; background-color: rgba(18, 5, 10, 0.88); backdrop-filter: blur(10px); border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                
+                <div class="row g-0">
+                    
+                    <!-- parte isquierda -->
+                    <div class="col-12 col-lg-6 p-4 border-end border-secondary border-opacity-50">
+                        <h4 class="text-warning text-center border-bottom border-secondary border-opacity-50 pb-2 mb-4 fw-bold">Pastas & Entradas</h4>
+
+                        <div class="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary border-opacity-25">
+                            <div class="d-flex align-items-center">
+                                <img src="pantallaapp.jpg" class="rounded-circle me-3" style="width: 45px; height: 45px; object-fit: cover;" alt="Platillo">
+                                <a href="carrito.php?agregar=Spaghetti Bolognesa&precio=7500" class="text-white text-decoration-none fw-bold link-warning">Spaghetti Bolognesa</a>
+                            </div>
+                            <span class="text-warning fw-bold">$7.500</span>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary border-opacity-25">
+                            <div class="d-flex align-items-center">
+                                <img src="pantallaapp.jpg" class="rounded-circle me-3" style="width: 45px; height: 45px; object-fit: cover;" alt="Platillo">
+                                <a href="carrito.php?agregar=Fettuccine Alfredo&precio=7900" class="text-white text-decoration-none fw-bold link-warning">Fettuccine Alfredo</a>
+                            </div>
+                            <span class="text-warning fw-bold">$7.900</span>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary border-opacity-25">
+                            <div class="d-flex align-items-center">
+                                <img src="pantallaapp.jpg" class="rounded-circle me-3" style="width: 45px; height: 45px; object-fit: cover;" alt="Platillo">
+                                <a href="carrito.php?agregar=Ravioles de Ricotta&precio=8200" class="text-white text-decoration-none fw-bold link-warning">Ravioles de Ricotta</a>
+                            </div>
+                            <span class="text-warning fw-bold">$8.200</span>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary border-opacity-25">
+                            <div class="d-flex align-items-center">
+                                <img src="pantallaapp.jpg" class="rounded-circle me-3" style="width: 45px; height: 45px; object-fit: cover;" alt="Platillo">
+                                <a href="carrito.php?agregar=Lasaña de Carne&precio=8500" class="text-white text-decoration-none fw-bold link-warning">Lasaña de Carne</a>
+                            </div>
+                            <span class="text-warning fw-bold">$8.500</span>
+                        </div>
+
+                        <div class="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary border-opacity-25">
+                            <div class="d-flex align-items-center">
+                                <img src="pantallaapp.jpg" class="rounded-circle me-3" style="width: 45px; height: 45px; object-fit: cover;" alt="Platillo">
+                                <a href="carrito.php?agregar=Ñoquis al Pesto&precio=7800" class="text-white text-decoration-none fw-bold link-warning">Ñoquis al Pesto</a>
+                            </div>
+                            <span class="text-warning fw-bold">$7.800</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary border-opacity-25">
+                            <div class="d-flex align-items-center">
+                                <img src="pantallaapp.jpg" class="rounded-circle me-3" style="width: 45px; height: 45px; object-fit: cover;" alt="Platillo">
+                                <a href="carrito.php?agregar=Canelones de Espinaca&precio=8100" class="text-white text-decoration-none fw-bold link-warning">Canelones de Espinaca</a>
+                            </div>
+                            <span class="text-warning fw-bold">$8.100</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between py-2 border-bottom border-secondary border-opacity-25">
+                            <div class="d-flex align-items-center">
+                                <img src="pantallaapp.jpg" class="rounded-circle me-3" style="width: 45px; height: 45px; object-fit: cover;" alt="Platillo">
+                                <a href="carrito.php?agregar=Fideos con Albóndigas&precio=8400" class="text-white text-decoration-none fw-bold link-warning">Fideos con Albóndigas</a>
+                            </div>
+                            <span class="text-warning fw-bold">$8.400</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between py-2">
+                            <div class="d-flex align-items-center">
+                                <img src="pantallaapp.jpg" class="rounded-circle me-3" style="width: 45px; height: 45px; object-fit: cover;" alt="Platillo">
+                                <a href="carrito.php?agregar=Bruschetta Clásica&precio=4900" class="text-white text-decoration-none fw-bold link-warning">Bruschetta Clásica</a>
+                            </div>
+                            <span class="text-warning fw-bold">$4.900</span>
+                        </div>
+                    </div>
+
+                    <!-- parte derecha-->
+                    <div class="col-12 col-lg-6 p-4">
+                        <h4 class="text-warning text-center border-bottom border-secondary border-opacity-50 pb-2 mb-4 fw-bold">Pizzas & Especiales</h4>
+                        <div class="d-flex align-items-center justify-content-between py-3 border-bottom border-secondary border-opacity-25">
+                            <div class="d-flex align-items-center">
+                                <img src="pantallaapp.jpg" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;" alt="Platillo">
+                                <a href="carrito.php?agregar=Pizza Margarita&precio=9500" class="text-white text-decoration-none fw-bold fs-5 link-warning">Pizza Margarita</a>
+                            </div>
+                            <span class="text-warning fw-bold fs-5">$9.500</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between py-3 border-bottom border-secondary border-opacity-25">
+                            <div class="d-flex align-items-center">
+                                <img src="pantallaapp.jpg" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;" alt="Platillo">
+                                <a href="carrito.php?agregar=Pizza Cuatro Quesos&precio=10900" class="text-white text-decoration-none fw-bold fs-5 link-warning">Pizza Cuatro Quesos</a>
+                            </div>
+                            <span class="text-warning fw-bold fs-5">$10.900</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between py-3 border-bottom border-secondary border-opacity-25">
+                            <div class="d-flex align-items-center">
+                                <img src="pantallaapp.jpg" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;" alt="Platillo">
+                                <a href="carrito.php?agregar=Pizza Pepperoni&precio=10200" class="text-white text-decoration-none fw-bold fs-5 link-warning">Pizza Pepperoni</a>
+                            </div>
+                            <span class="text-warning fw-bold fs-5">$10.200</span>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between py-3">
+                            <div class="d-flex align-items-center">
+                                <img src="pantallaapp.jpg" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;" alt="Platillo">
+                                <a href="carrito.php?agregar=Calzone Relleno&precio=11500" class="text-white text-decoration-none fw-bold fs-5 link-warning">Calzone Relleno</a>
+                            </div>
+                            <span class="text-warning fw-bold fs-5">$11.500</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
         <div class="modal fade" id="myModal">
             <div class="modal-dialog">
                 <div class="modal-content">
