@@ -55,9 +55,9 @@
                 <div class="col-12 col-md-4">
                     <div class="card h-100 bg-dark text-white border-secondary shadow-sm">
                         <!-- Ajusta la ruta a tu archivo real -->
-                        <img src="imagenes/fideos con salsa.jpg" class="card-img-top" alt="Fideos con salsa" style="height: 160px; object-fit: cover;">
+                        <img src="imagenes/fideos con salsa.jpg" class="card-img-top" alt="Spaghetti Bolognesa" style="height: 160px; object-fit: cover;">
                         <div class="card-body py-2">
-                            <a href="carta.php" class="text-decoration-none text-warning fw-bold stretched-link">Fideos con salsa</a>
+                            <a href="carta.php" class="text-decoration-none text-warning fw-bold stretched-link">Spaghetti Bolognesa</a>
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                         <!-- Ajusta la ruta a tu archivo real -->
                         <img src="imagenes/lasana.jpg" class="card-img-top" alt="Lasaña" style="height: 160px; object-fit: cover;">
                         <div class="card-body py-2">
-                            <a href="carta.php" class="text-decoration-none text-warning fw-bold stretched-link">Lasaña</a>
+                            <a href="carta.php" class="text-decoration-none text-warning fw-bold stretched-link">Lasaña de carne</a>
                         </div>
                     </div>
                 </div>

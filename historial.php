@@ -42,6 +42,126 @@
             </div>
         </nav>
         <!--Modal-->
+        <div class="container my-5 pt-3 flex-grow-1" style="max-width: 800px;">
+            <div class="card shadow-lg border-0 text-white p-4" 
+                 style="background-color: rgba(18, 5, 10, 0.88); backdrop-filter: blur(10px); border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                
+                <!-- Título centrado -->
+                <h3 class="text-center text-warning fw-bold border-bottom border-secondary border-opacity-50 pb-3 mb-4">
+                    Historial de compras
+                </h3>
+
+                <!-- Lista de pedidos -->
+            <div class="d-flex flex-column gap-3">
+
+                <!-- Fila 1 -->
+                <div class="d-flex justify-content-between align-items-center py-2 border-bottom border-secondary border-opacity-25">
+                    <div>
+                        <span class="text-white fw-bold d-block">2x Spaghetti Bolognesa</span>
+                        <span class="text-warning small">$14.000</span>
+                    </div>
+                    <div class="text-end">
+                        <span class="text-white-50 small d-block">20/09/2026</span>
+                        <span class="text-success small fw-bold">Entregado</span>
+                    </div>
+                </div>
+
+                <!-- Fila 2 -->
+                <div class="d-flex justify-content-between align-items-center py-2 border-bottom border-secondary border-opacity-25">
+                    <div>
+                        <span class="text-white fw-bold d-block">1x Pizza Margarita, 1x Bebida</span>
+                        <span class="text-warning small">$11.500</span>
+                    </div>
+                    <div class="text-end">
+                        <span class="text-white-50 small d-block">18/09/2026</span>
+                        <span class="text-success small fw-bold">Entregado</span>
+                    </div>
+                </div>
+
+                <!-- Fila 3 -->
+                <div class="d-flex justify-content-between align-items-center py-2 border-bottom border-secondary border-opacity-25">
+                    <div>
+                        <span class="text-white fw-bold d-block">1x Lasaña de Carne</span>
+                        <span class="text-warning small">$8.500</span>
+                    </div>
+                    <div class="text-end">
+                        <span class="text-white-50 small d-block">12/09/2026</span>
+                        <span class="text-success small fw-bold">Entregado</span>
+                    </div>
+                </div>
+
+                <!-- Fila 4 -->
+                <div class="d-flex justify-content-between align-items-center py-2 border-bottom border-secondary border-opacity-25">
+                    <div>
+                        <span class="text-white fw-bold d-block">2x Ravioles de Ricotta</span>
+                        <span class="text-warning small">$16.400</span>
+                    </div>
+                    <div class="text-end">
+                        <span class="text-white-50 small d-block">05/09/2026</span>
+                        <span class="text-success small fw-bold">Entregado</span>
+                    </div>
+                </div>
+
+                <!-- Fila 5 -->
+                <div class="d-flex justify-content-between align-items-center py-2">
+                    <div>
+                        <span class="text-white fw-bold d-block">1x Pizza Cuatro Quesos</span>
+                        <span class="text-warning small">$10.900</span>
+                    </div>
+                    <div class="text-end">
+                        <span class="text-white-50 small d-block">28/08/2026</span>
+                        <span class="text-danger small fw-bold">Cancelado</span>
+                    </div>
+                </div>
+
+            </div>
+
+            </div>
+        </div>
+
+        <!-- Modal de autenticación (igual a las otras páginas) -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Autenticacion</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-6 border-end">
+                                <h5>Usuario</h5>
+                                <form action="registro.php">
+                                    <div class="mb-3 mt-3">
+                                        <label for="emailUser" class="form-label">Email:</label>
+                                        <input type="email" class="form-control" id="emailUser" placeholder="Enter email" name="email">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mb-3">Crear cuenta</button>
+                                </form>
+                                <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesion</button>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5>Trabajadores</h5>
+                                <form action="trabajador.php">
+                                    <div class="mb-3 mt-3">
+                                        <label for="emailTrab" class="form-label">Email:</label>
+                                        <input type="email" class="form-control" id="emailTrab" placeholder="Enter email" name="email">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="pwdTrab" class="form-label">Password:</label>
+                                        <input type="password" class="form-control" id="pwdTrab" placeholder="Enter password" name="pswd">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Login</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!--Modal Principal-->
         <div class="modal fade" id="myModal">
             <div class="modal-dialog modal-lg">
