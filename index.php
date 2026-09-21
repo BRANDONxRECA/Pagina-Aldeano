@@ -138,7 +138,58 @@
                 </div>
             </div>
         </div>
+    <!-- Contenedor de Reseñas de Clientes -->
+    <div class="container my-4">
+        <div class="p-4 rounded-4 shadow-lg mx-auto" 
+             style="max-width: 900px; background-color: rgba(20, 5, 10, 0.75); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.15);">
+            
+            <h4 class="text-center text-warning mb-4 fw-bold" style="letter-spacing: 1px;">Opiniones de Nuestros Clientes</h4>
 
+            <div class="row g-4 justify-content-center">
+                
+                <!-- Reseña 1: 5/5 -->
+                <div class="col-12 col-md-6">
+                    <div class="p-3 rounded-3 h-100 border border-secondary border-opacity-25" style="background-color: rgba(255, 255, 255, 0.05);">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-white fw-bold">Camila Rojas</span>
+                            <div class="text-warning small">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="text-white ms-1 fw-bold">5/5</span>
+                            </div>
+                        </div>
+                        <p class="text-white-50 small mb-0">
+                            "La pasta fresca casera es simplemente de otro nivel. El sabor de la salsa y el ambiente te transportan directo a Italia. ¡Totalmente recomendado!"
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Reseña 2: 4.5/5 -->
+                <div class="col-12 col-md-6">
+                    <div class="p-3 rounded-3 h-100 border border-secondary border-opacity-25" style="background-color: rgba(255, 255, 255, 0.05);">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="text-white fw-bold">Ignacio Silva</span>
+                            <div class="text-warning small">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <span class="text-white ms-1 fw-bold">4.5/5</span>
+                            </div>
+                        </div>
+                        <p class="text-white-50 small mb-0">
+                            "Excelente relación precio-calidad. La lasaña llega bien caliente y con abundante queso fundido. Muy rápida atención."
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
         <!--Modal Inicio Sesion Usuario-->
         <div class="modal fade" id="loginModal">
             <div class="modal-dialog">
@@ -175,5 +226,17 @@
                 </div>
             </div>
         </div>
-    </body>
+        <!-- Footer -->
+    <div class="container-fluid bg-dark mt-auto py-3 text-white text-center">
+        <div class="row">
+            <div class="col-4 text-start ps-4">
+                <a href="quienes_somos.php" style="color:gray; text-decoration: none;"><strong>Quienes somos</strong>
+                </a>
+            </div>
+            <div 
+                class="col-4" style="color:gray"><strong>LocalLaNonna@gmail.com</strong>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
 </html>

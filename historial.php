@@ -249,14 +249,19 @@
             </div>
         </div>
 
-        <div class="container-fluid bg-dark mt-auto py-3 text-white text-center">
-            <div class="row">
-                <div class="col-4"></div>
-                <div class="col-4" style="color:gray"><strong>MiEmpresa@2026</strong></div>
-                <div class="col-4"></div>
-            </div>
-        </div>
-
         <script src="js/app.js"></script>
     </body>
+        <!-- Footer -->
+    <div class="container-fluid bg-dark mt-auto py-3 text-white text-center">
+        <div class="row">
+            <div class="col-4 text-start ps-4">
+                <a href="quienes_somos.php" style="color:gray; text-decoration: none;"><strong>Quienes somos</strong>
+                </a>
+            </div>
+            <div 
+                class="col-4" style="color:gray"><strong>LocalLaNonna@gmail.com</strong>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
 </html>

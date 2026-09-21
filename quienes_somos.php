@@ -25,11 +25,7 @@
                             <a class="nav-link" href="historial.php">Historial</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="carrito.php">Carrito</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="quienes_somos.php">Quienes Somos</a>
-                        </li>                                               
+                            <a class="nav-link" href="carrito.php">Carrito</a>                                          
                     </ul>
                 </div>  
                 <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#myModal">Acceder</button>                             
@@ -158,15 +154,20 @@
             </div>
         </div>
 
-        <!-- Footer -->
-        <div class="container-fluid bg-dark mt-auto py-3 text-white text-center">
-            <div class="row">
-                <div class="col-4"></div>
-                <div class="col-4" style="color:gray"><strong>MiEmpresa@2026</strong></div>
-                <div class="col-4"></div>
-            </div>
-        </div>
 
         <script src="js/app.js"></script>
     </body>
+        <!-- Footer -->
+    <div class="container-fluid bg-dark mt-auto py-3 text-white text-center">
+        <div class="row">
+            <div class="col-4 text-start ps-4">
+                <a href="quienes_somos.php" style="color:gray; text-decoration: none;"><strong>Quienes somos</strong>
+                </a>
+            </div>
+            <div 
+                class="col-4" style="color:gray"><strong>LocalLaNonna@gmail.com</strong>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
 </html>
