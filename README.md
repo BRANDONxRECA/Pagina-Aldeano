@@ -1,0 +1,1 @@
+Acá le presentamos el código que utilizamos para realizar nuestra Solemne-1, nos toco ayudar al restaurant "La Nonna" enfocado en la comida Italiana le agregamos los pedidos online como se nos pidió también, agregamos la opción de crear el usuario, los pedidios, etc. El archivo de app.js lo sacamos de lo mandado en la semana 3.  
