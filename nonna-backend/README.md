@@ -1,4 +1,4 @@
-# 🍝 La Nonna — Backend seguro
+#  La Nonna — Backend 
 
 **Evaluación de la Unidad 2 · Diseño e implementación de un backend seguro completo**
 
