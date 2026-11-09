@@ -40,9 +40,9 @@
 
 Un único **API Gateway** es público. Detrás, en una red privada, están el **Auth Service**, los microservicios **inventory, orders, clients y payments** (cada uno con su propia base MySQL y un usuario con permisos mínimos), el **GraphQL Gateway** de agregación y el servicio de **analítica**.
 
-![Mapa de componentes](imagenes/03-mapa-componentes.png)
+![Mapa de componentes](nonna-backend/imagenes/03-mapa-componentes.png)
 
-<sub>Figura 1 · Mapa de componentes, despliegue y fronteras de confianza · [ver en alta resolución (SVG)](imagenes/03-mapa-componentes.svg) · [fuente editable](docs/diagramas/03-mapa-componentes.mmd)</sub>
+<sub>Figura 1 · Mapa de componentes, despliegue y fronteras de confianza · [ver en alta resolución (SVG)](nonna-backend/imagenes/03-mapa-componentes.svg) · [fuente editable](nonna-backend/docs/diagramas/03-mapa-componentes.mmd)</sub>
 
 
 ---
@@ -78,7 +78,7 @@ stock y no implementar gRPC. Esas decisiones se justifican en las secciones 3, 5
 
 Escritorio y móvil comparten las mismas operaciones: la versión móvil solo cambia la disposición, así que no agrega servicios.
 Las variaciones que solo cambian la presentación no generan servicios nuevos.
-Los ejemplos JSON de **cada** contrato, obtenidos por ejecución, están en [contratos-ejemplos.md](docs/contratos-ejemplos.md).
+Los ejemplos JSON de **cada** contrato, obtenidos por ejecución, están en [contratos-ejemplos.md](nonna-backend/docs/contratos-ejemplos.md).
 
 Clasificación de datos: **P** = público · **R** = restringido (dato personal) · **C** = credencial.
 
@@ -125,7 +125,7 @@ se rechaza con 422 (`extra="forbid"`).
 
 ### Ejemplos de contratos (extracto)
 
-Los 31 servicios (S01–S31) tienen su ejemplo JSON, **obtenido por ejecución**, en [docs/contratos-ejemplos.md](docs/contratos-ejemplos.md). Extracto:
+Los 31 servicios (S01–S31) tienen su ejemplo JSON, **obtenido por ejecución**, en [docs/contratos-ejemplos.md](nonna-backend/docs/contratos-ejemplos.md). Extracto:
 
 #### S07 · Consultar catálogo
 
@@ -294,9 +294,9 @@ Respuesta:
 ## 2. Módulo 2 — Clases y cardinalidades del dominio
 
 
-![UML de clases del dominio](imagenes/01-uml-dominio.png)
+![UML de clases del dominio](nonna-backend/imagenes/01-uml-dominio.png)
 
-<sub>Figura 2 · UML de clases del dominio y servicios públicos «service» con sus DTO · [ver en alta resolución (SVG)](imagenes/01-uml-dominio.svg) · [fuente editable](docs/diagramas/01-uml-dominio.mmd)</sub>
+<sub>Figura 2 · UML de clases del dominio y servicios públicos «service» con sus DTO · [ver en alta resolución (SVG)](nonna-backend/imagenes/01-uml-dominio.svg) · [fuente editable](nonna-backend/docs/diagramas/01-uml-dominio.mmd)</sub>
 
 **Leyenda:** rombo relleno = composición · rombo vacío = agregación · línea continua = asociación · línea punteada sin flecha = referencia lógica entre servicios (id sin FK, porque cada base pertenece a un servicio) · flecha punteada = dependencia (uso de un contrato o entidad) · los números son la multiplicidad en cada extremo.
 
@@ -354,9 +354,9 @@ registro por cada instancia del servicio.
 
 El mapa de componentes está en la [Figura 1](#vista-general). Secuencia representativa (pedido y pago, incluidas las fallas):
 
-![Secuencia de compra y pago](imagenes/04-secuencia-compra.png)
+![Secuencia de compra y pago](nonna-backend/imagenes/04-secuencia-compra.png)
 
-<sub>Figura 3 · Secuencia: crear pedido, reservar stock, pagar con Webpay y confirmar · [ver en alta resolución (SVG)](imagenes/04-secuencia-compra.svg) · [fuente editable](docs/diagramas/04-secuencia-compra.mmd)</sub>
+<sub>Figura 3 · Secuencia: crear pedido, reservar stock, pagar con Webpay y confirmar · [ver en alta resolución (SVG)](nonna-backend/imagenes/04-secuencia-compra.svg) · [fuente editable](nonna-backend/docs/diagramas/04-secuencia-compra.mmd)</sub>
 
 
 | Sistema | Responsabilidad | Datos que administra (autoridad) | Servicios | Dependencias | Contrato de integración | Credencial requerida | Respuesta ante fallos |
@@ -448,9 +448,9 @@ usuario no puede consultar pedidos de otro.
 ## 5. Módulo 5 — API Gateway y fronteras de confianza
 
 
-![UML del API Gateway](imagenes/02-uml-gateway.png)
+![UML del API Gateway](nonna-backend/imagenes/02-uml-gateway.png)
 
-<sub>Figura 4 · UML del API Gateway, políticas, SecretProvider y GraphQL Gateway · [ver en alta resolución (SVG)](imagenes/02-uml-gateway.svg) · [fuente editable](docs/diagramas/02-uml-gateway.mmd)</sub>
+<sub>Figura 4 · UML del API Gateway, políticas, SecretProvider y GraphQL Gateway · [ver en alta resolución (SVG)](nonna-backend/imagenes/02-uml-gateway.svg) · [fuente editable](nonna-backend/docs/diagramas/02-uml-gateway.mmd)</sub>
 
 
 **¿Cuántos gateways?** **Uno solo**, con políticas por ruta (`access`, `roles`, `rate`). Las rutas anónimas,
@@ -483,9 +483,9 @@ políticas, la separación en cuatro sistemas, los secretos por tramo y las prue
 
 ### Recorrido de una solicitud autorizada y una denegada
 
-![Solicitud autorizada y denegada](imagenes/05-secuencia-autorizada-denegada.png)
+![Solicitud autorizada y denegada](nonna-backend/imagenes/05-secuencia-autorizada-denegada.png)
 
-<sub>Figura 5 · Misma regla de propiedad: Javiera ve su pedido (200), Matías recibe 404, sin token o llamando directo al servicio: 401 · [ver en alta resolución (SVG)](imagenes/05-secuencia-autorizada-denegada.svg) · [fuente editable](docs/diagramas/05-secuencia-autorizada-denegada.mmd)</sub>
+<sub>Figura 5 · Misma regla de propiedad: Javiera ve su pedido (200), Matías recibe 404, sin token o llamando directo al servicio: 401 · [ver en alta resolución (SVG)](nonna-backend/imagenes/05-secuencia-autorizada-denegada.svg) · [fuente editable](nonna-backend/docs/diagramas/05-secuencia-autorizada-denegada.mmd)</sub>
 
 
 ---
@@ -633,7 +633,7 @@ se revoca. Si se filtra la clave JWT, se rota el par de claves y todas las sesio
 <a name="m7-pruebas"></a>
 ### Casos de validación ejecutados
 
-Resultado completo: [`evidencias/pytest.txt`](docs/evidencias/pytest.txt) — **39 pruebas, 39 aprobadas**.
+Resultado completo: [`evidencias/pytest.txt`](nonna-backend/docs/evidencias/pytest.txt) — **39 pruebas, 39 aprobadas**.
 
 | # | Caso | Entrada | Identidad | Resultado esperado y obtenido | Componente que verifica | Prueba |
 |---|---|---|---|---|---|---|
@@ -669,7 +669,7 @@ estado inválidas (409).
 
 ### Schema, consulta y autorización
 
-Completo en [`schema.graphql`](docs/schema.graphql). Pantallas que lo usan: **Historial** (`misPedidos`), detalle de un
+Completo en [`schema.graphql`](nonna-backend/docs/schema.graphql). Pantallas que lo usan: **Historial** (`misPedidos`), detalle de un
 pedido (`pedido`), panel de cocina (`pedidosActivos`) y administración (`reporteVentas`).
 
 #### Consulta de prueba (pantalla Historial)
@@ -811,10 +811,10 @@ contención de escritura de SQLite y porque cada servicio corre un solo worker. 
 
 | Evidencia | Archivo | Resultado |
 |---|---|---|
-| Pruebas automatizadas (flujos, seguridad, GraphQL) | [docs/evidencias/pytest.txt](docs/evidencias/pytest.txt) | **39/39 aprobadas** |
-| Casos del Módulo 7 contra el sistema en ejecución | [docs/evidencias/](docs/evidencias/) `seguridad-*.md` | **22/22** (SQLite; repetir con MySQL) |
-| Prueba de carga (concurrencia 5 y 20) | [docs/evidencias/](docs/evidencias/) `carga-*.json` | p95 de 186 ms con concurrencia 5, 0 errores |
-| Ejemplos de contratos por ejecución | [docs/contratos-ejemplos.md](docs/contratos-ejemplos.md) | 37 ejemplos (31 servicios + casos denegados) |
+| Pruebas automatizadas (flujos, seguridad, GraphQL) | [docs/evidencias/pytest.txt](nonna-backend/docs/evidencias/pytest.txt) | **39/39 aprobadas** |
+| Casos del Módulo 7 contra el sistema en ejecución | [docs/evidencias/](nonna-backend/docs/evidencias/) `seguridad-*.md` | **22/22** (SQLite; repetir con MySQL) |
+| Prueba de carga (concurrencia 5 y 20) | [docs/evidencias/](nonna-backend/docs/evidencias/) `carga-*.json` | p95 de 186 ms con concurrencia 5, 0 errores |
+| Ejemplos de contratos por ejecución | [docs/contratos-ejemplos.md](nonna-backend/docs/contratos-ejemplos.md) | 37 ejemplos (31 servicios + casos denegados) |
 
 ### Reglas de negocio implementadas
 
@@ -926,7 +926,7 @@ curl -s -X POST http://127.0.0.1:8000/api/v1/payments -H "Authorization: Bearer 
 Luego, para simular que el cliente paga en el proveedor, abrir la `redirect_url` que devuelve el pago
 (`http://127.0.0.1:8009/pay/tok_...`). El proveedor firma el aviso y lo envía al webhook del gateway.
 
-La lista de rutas publicadas está en `GET http://127.0.0.1:8000/routes` y en [docs/rutas-y-secretos.md](docs/rutas-y-secretos.md).
+La lista de rutas publicadas está en `GET http://127.0.0.1:8000/routes` y en [docs/rutas-y-secretos.md](nonna-backend/docs/rutas-y-secretos.md).
 
 ### Pruebas
 
@@ -936,7 +936,7 @@ La lista de rutas publicadas está en `GET http://127.0.0.1:8000/routes` y en [d
 
 Las pruebas levantan los 9 componentes en un mismo proceso, cada uno con su propia base SQLite y sus propios secretos.
 Cubren los flujos del caso, los 6 casos de validación del Módulo 7 y los límites de GraphQL.
-Último resultado: [docs/evidencias/pytest.txt](docs/evidencias/pytest.txt) (39/39).
+Último resultado: [docs/evidencias/pytest.txt](nonna-backend/docs/evidencias/pytest.txt) (39/39).
 
 Contra el sistema **en ejecución** (cualquier base), con los 6 casos del Módulo 7 y el pago completo:
 
