@@ -1,0 +1,9 @@
+# Nunca subir secretos ni datos locales
+secrets/
+.env
+data/
+.run/
+.venv/
+venv/
+__pycache__/
+*.pyc

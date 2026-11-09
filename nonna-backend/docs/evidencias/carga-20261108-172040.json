@@ -1,0 +1,77 @@
+{
+  "tipo": "medición (no proyección)",
+  "fecha": "2026-11-08T17:20:40",
+  "entorno": {
+    "url": "http://127.0.0.1:8000",
+    "os": "nt",
+    "nota": "Windows 11, procesos locales uvicorn 1 worker, SQLite"
+  },
+  "concurrencia": 20,
+  "duracion_s": 30,
+  "solicitudes": 1195,
+  "throughput_rps": 39.4,
+  "errores": 0,
+  "latencia_ms": {
+    "p50": 333.3,
+    "p95": 1455.1,
+    "p99": 2158.4
+  },
+  "por_tipo": {
+    "catalogo": {
+      "n": 745,
+      "p95_ms": 1351.7,
+      "media_ms": 398.1,
+      "errores": 0
+    },
+    "graphql": {
+      "n": 275,
+      "p95_ms": 1383.0,
+      "media_ms": 539.2,
+      "errores": 0
+    },
+    "pedido": {
+      "n": 175,
+      "p95_ms": 2002.3,
+      "media_ms": 901.9,
+      "errores": 0
+    }
+  },
+  "recursos_a_mitad_de_prueba": {
+    "auth": {
+      "cpu_percent": 0.0,
+      "rss_mb": 89.8
+    },
+    "clients": {
+      "cpu_percent": 0.0,
+      "rss_mb": 82.9
+    },
+    "inventory": {
+      "cpu_percent": 31.2,
+      "rss_mb": 85.8
+    },
+    "orders": {
+      "cpu_percent": 7.8,
+      "rss_mb": 92.4
+    },
+    "payments": {
+      "cpu_percent": 7.8,
+      "rss_mb": 83.2
+    },
+    "graphql": {
+      "cpu_percent": 23.4,
+      "rss_mb": 80.2
+    },
+    "analytics": {
+      "cpu_percent": 0.0,
+      "rss_mb": 61.6
+    },
+    "provider": {
+      "cpu_percent": 0.0,
+      "rss_mb": 61.6
+    },
+    "api-gateway": {
+      "cpu_percent": 46.8,
+      "rss_mb": 77.1
+    }
+  }
+}

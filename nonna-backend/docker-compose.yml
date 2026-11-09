@@ -1,0 +1,118 @@
+# Despliegue reproducible con separación de red.
+#   1) python scripts/gen_secrets.py --db-from-sql db/nonna_workbench_setup.sql
+#   2) docker compose up --build
+# Solo el API Gateway publica un puerto (8000). Todo lo demás vive en la red "privada"
+# (internal: true -> sin salida ni entrada desde fuera). Cada contenedor recibe SOLO los
+# secretos que necesita (Docker secrets montados en /run/secrets).
+
+x-svc: &svc
+  build: .
+  restart: unless-stopped
+  networks: [privada]
+  environment: &env
+    DB_HOST: mysql
+    AUTH_URL: http://auth:8000
+    CLIENTS_URL: http://clients:8000
+    INVENTORY_URL: http://inventory:8000
+    ORDERS_URL: http://orders:8000
+    PAYMENTS_URL: http://payments:8000
+    GRAPHQL_URL: http://graphql:8000
+    ANALYTICS_URL: http://analytics:8000
+    PROVIDER_URL: http://provider:8000
+  healthcheck:
+    test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+    interval: 10s
+    retries: 5
+
+services:
+  mysql:
+    image: mysql:8.0.39
+    environment:
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql-root-password
+    secrets: [mysql-root-password]
+    volumes:
+      - ./db/nonna_workbench_setup.sql:/docker-entrypoint-initdb.d/01-setup.sql:ro
+      - mysql-data:/var/lib/mysql
+    networks: [privada]
+    # Nota: el script crea los usuarios svc_* @'localhost'. En contenedores deben ser @'%'
+    # (o la subred de la red privada); ver README, sección Docker.
+
+  auth:
+    <<: *svc
+    environment: { <<: *env, APP_MODULE: services.auth_service.app:app, SERVICE_NAME: auth }
+    secrets: [db-auth-password, jwt-private-key, svc-api-gateway-to-auth, svc-auth-to-clients]
+  clients:
+    <<: *svc
+    environment: { <<: *env, APP_MODULE: services.clients_service.app:app, SERVICE_NAME: clients }
+    secrets: [db-clients-password, svc-api-gateway-to-clients, svc-auth-to-clients, svc-orders-to-clients, svc-payments-to-clients, svc-graphql-to-clients]
+  inventory:
+    <<: *svc
+    environment: { <<: *env, APP_MODULE: services.inventory_service.app:app, SERVICE_NAME: inventory }
+    secrets: [db-inventory-password, svc-api-gateway-to-inventory, svc-orders-to-inventory, svc-graphql-to-inventory]
+  orders:
+    <<: *svc
+    environment: { <<: *env, APP_MODULE: services.orders_service.app:app, SERVICE_NAME: orders }
+    secrets: [db-orders-password, svc-api-gateway-to-orders, svc-payments-to-orders, svc-graphql-to-orders, svc-analytics-to-orders, svc-orders-to-inventory, svc-orders-to-clients]
+  payments:
+    <<: *svc
+    environment: { <<: *env, APP_MODULE: services.payments_service.app:app, SERVICE_NAME: payments }
+    secrets: [db-payments-password, payments-webhook-secret, provider-api-key, svc-api-gateway-to-payments, svc-graphql-to-payments, svc-payments-to-orders, svc-payments-to-clients]
+  graphql:
+    <<: *svc
+    environment: { <<: *env, APP_MODULE: services.graphql_gateway.app:app, SERVICE_NAME: graphql }
+    secrets: [svc-api-gateway-to-graphql, svc-graphql-to-orders, svc-graphql-to-inventory, svc-graphql-to-payments, svc-graphql-to-clients, svc-graphql-to-analytics]
+  analytics:
+    <<: *svc
+    environment: { <<: *env, APP_MODULE: services.analytics_service.app:app, SERVICE_NAME: analytics }
+    secrets: [svc-graphql-to-analytics, svc-analytics-to-orders]
+  provider:   # adaptador de prueba del proveedor externo
+    <<: *svc
+    networks: [privada, publica]
+    environment: { <<: *env, APP_MODULE: services.mock_provider.app:app, SERVICE_NAME: provider,
+                   PROVIDER_WEBHOOK_URL: http://api-gateway:8000/api/v1/payments/webhook,
+                   PROVIDER_PUBLIC_URL: http://localhost:8009 }
+    secrets: [payments-webhook-secret, provider-api-key]
+    ports: ["8009:8000"]
+  api-gateway:
+    <<: *svc
+    networks: [privada, publica]
+    environment: { <<: *env, APP_MODULE: services.api_gateway.app:app, SERVICE_NAME: api-gateway }
+    secrets: [jwt-public-key, svc-api-gateway-to-auth, svc-api-gateway-to-clients, svc-api-gateway-to-inventory,
+              svc-api-gateway-to-orders, svc-api-gateway-to-payments, svc-api-gateway-to-graphql]
+    ports: ["8000:8000"]
+
+networks:
+  privada: { internal: true }
+  publica: {}
+
+volumes:
+  mysql-data:
+
+secrets:
+  mysql-root-password: { file: ./secrets/mysql-root-password }
+  db-auth-password: { file: ./secrets/db-auth-password }
+  db-clients-password: { file: ./secrets/db-clients-password }
+  db-inventory-password: { file: ./secrets/db-inventory-password }
+  db-orders-password: { file: ./secrets/db-orders-password }
+  db-payments-password: { file: ./secrets/db-payments-password }
+  jwt-private-key: { file: ./secrets/jwt-private-key }
+  jwt-public-key: { file: ./secrets/jwt-public-key }
+  payments-webhook-secret: { file: ./secrets/payments-webhook-secret }
+  provider-api-key: { file: ./secrets/provider-api-key }
+  svc-api-gateway-to-auth: { file: ./secrets/svc-api-gateway-to-auth }
+  svc-api-gateway-to-clients: { file: ./secrets/svc-api-gateway-to-clients }
+  svc-api-gateway-to-inventory: { file: ./secrets/svc-api-gateway-to-inventory }
+  svc-api-gateway-to-orders: { file: ./secrets/svc-api-gateway-to-orders }
+  svc-api-gateway-to-payments: { file: ./secrets/svc-api-gateway-to-payments }
+  svc-api-gateway-to-graphql: { file: ./secrets/svc-api-gateway-to-graphql }
+  svc-auth-to-clients: { file: ./secrets/svc-auth-to-clients }
+  svc-orders-to-inventory: { file: ./secrets/svc-orders-to-inventory }
+  svc-orders-to-clients: { file: ./secrets/svc-orders-to-clients }
+  svc-payments-to-orders: { file: ./secrets/svc-payments-to-orders }
+  svc-payments-to-clients: { file: ./secrets/svc-payments-to-clients }
+  svc-graphql-to-orders: { file: ./secrets/svc-graphql-to-orders }
+  svc-graphql-to-inventory: { file: ./secrets/svc-graphql-to-inventory }
+  svc-graphql-to-payments: { file: ./secrets/svc-graphql-to-payments }
+  svc-graphql-to-clients: { file: ./secrets/svc-graphql-to-clients }
+  svc-graphql-to-analytics: { file: ./secrets/svc-graphql-to-analytics }
+  svc-analytics-to-orders: { file: ./secrets/svc-analytics-to-orders }
