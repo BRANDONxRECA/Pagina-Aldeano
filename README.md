@@ -5,7 +5,7 @@
 | | |
 |---|---|
 | Caso | N° **33** — Restaurante "La Nonna" (pastas frescas, Maipú) |
-| Integrantes | Ignacio Lucero | Brandon Recabarren ||
+| Integrantes | Ignacio Lucero, Brandon Recabarren ||
 | Versión del frontend | — pantallas: `index.php`, `carta.php`, `carrito.php`, `historial.php`, `quienes_somos.php` |
 | Versión del backend | este repositorio (Python 3.12+, FastAPI, MySQL 8) |
 | Fecha | 09-11-2026 |
