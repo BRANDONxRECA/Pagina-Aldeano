@@ -10,8 +10,6 @@
 | Versión del backend | este repositorio (Python 3.12+, FastAPI, MySQL 8) |
 | Fecha | 09-11-2026 |
 
-> Por indicación del profesor, la integración con el frontend no forma parte de esta entrega. Las pantallas se usan
-> como fuente de requisitos y todos los servicios se prueban a través del API Gateway, igual que lo haría el navegador.
 
 ---
 
