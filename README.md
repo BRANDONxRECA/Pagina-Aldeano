@@ -1,16 +1,15 @@
-# 🍝 La Nonna — Backend seguro
+# La Nonna — Backend seguro
 
-**Evaluación de la Unidad 2 · Diseño e implementación de un backend seguro completo**
+**Evaluación 2 · Diseño e implementación de un backend seguro completo**
 
 | | |
 |---|---|
-| Caso | N° **__** — Restaurante "La Nonna" (pastas frescas, Maipú) *(completar el número)* |
-| Integrantes | *(completar)* |
-| Versión del frontend | *(completar: commit o tag del frontend PHP)* — pantallas: `index.php`, `carta.php`, `carrito.php`, `historial.php`, `quienes_somos.php` |
+| Caso | N° **33** — Restaurante "La Nonna" (pastas frescas, Maipú) |
+| Integrantes: Ignacio Lucero | Brandon Recabarren ||
+| Versión del frontend | — pantallas: `index.php`, `carta.php`, `carrito.php`, `historial.php`, `quienes_somos.php` |
 | Versión del backend | este repositorio (Python 3.12+, FastAPI, MySQL 8) |
 | Fecha | 09-11-2026 |
 
-> Por indicación del profesor, la integración con el frontend no forma parte de esta entrega. Las pantallas se usan
 > como fuente de requisitos y todos los servicios se prueban a través del API Gateway, igual que lo haría el navegador.
 
 ---
@@ -38,7 +37,7 @@
 <a name="vista-general"></a>
 ## Vista general de la arquitectura
 
-Un único **API Gateway** es público. Detrás, en una red privada, están el **Auth Service**, los microservicios **inventory, orders, clients y payments** (cada uno con su propia base MySQL y un usuario con permisos mínimos), el **GraphQL Gateway** de agregación y el servicio de **analítica**.
+Un único **API Gateway** es público. Detrás, en una red privada, están el **Auth Service**, los microservicios **inventory, orders, clients y payments** (cada uno con su propia base en MySQL y un usuario con permisos mínimos), el **GraphQL Gateway** de agregación y el servicio de **analítica**.
 
 ![Mapa de componentes](nonna-backend/imagenes/03-mapa-componentes.png)
 
@@ -782,8 +781,6 @@ contención de escritura de SQLite y porque cada servicio corre un solo worker. 
 ### Consecuencias
 
 - Menos componentes que operar y asegurar (sin mTLS adicional ni generación de stubs).
-- Si la carga crece (varias sucursales, más de 10 veces el volumen) o aparece seguimiento de despacho en tiempo real,
-  se revisa esta decisión: gRPC server-streaming entre un servicio de despacho y un adaptador SSE en el gateway.
 - La evidencia reproducible de que la alternativa elegida aguanta la carga es `scripts/load_test.py` + `docs/evidencias/`.
 
 ---
