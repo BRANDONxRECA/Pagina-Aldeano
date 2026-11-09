@@ -1,4 +1,4 @@
-#  La Nonna — Backend 
+# 🍝 La Nonna — Backend seguro
 
 **Evaluación de la Unidad 2 · Diseño e implementación de un backend seguro completo**
 
@@ -40,9 +40,9 @@
 
 Un único **API Gateway** es público. Detrás, en una red privada, están el **Auth Service**, los microservicios **inventory, orders, clients y payments** (cada uno con su propia base MySQL y un usuario con permisos mínimos), el **GraphQL Gateway** de agregación y el servicio de **analítica**.
 
-![Mapa de componentes](docs/diagramas/img/03-mapa-componentes.png)
+![Mapa de componentes](imagenes/03-mapa-componentes.png)
 
-<sub>Figura 1 · Mapa de componentes, despliegue y fronteras de confianza · [ver en alta resolución (SVG)](docs/diagramas/img/03-mapa-componentes.svg) · [fuente editable](docs/diagramas/03-mapa-componentes.mmd)</sub>
+<sub>Figura 1 · Mapa de componentes, despliegue y fronteras de confianza · [ver en alta resolución (SVG)](imagenes/03-mapa-componentes.svg) · [fuente editable](docs/diagramas/03-mapa-componentes.mmd)</sub>
 
 
 ---
@@ -294,9 +294,9 @@ Respuesta:
 ## 2. Módulo 2 — Clases y cardinalidades del dominio
 
 
-![UML de clases del dominio](docs/diagramas/img/01-uml-dominio.png)
+![UML de clases del dominio](imagenes/01-uml-dominio.png)
 
-<sub>Figura 2 · UML de clases del dominio y servicios públicos «service» con sus DTO · [ver en alta resolución (SVG)](docs/diagramas/img/01-uml-dominio.svg) · [fuente editable](docs/diagramas/01-uml-dominio.mmd)</sub>
+<sub>Figura 2 · UML de clases del dominio y servicios públicos «service» con sus DTO · [ver en alta resolución (SVG)](imagenes/01-uml-dominio.svg) · [fuente editable](docs/diagramas/01-uml-dominio.mmd)</sub>
 
 **Leyenda:** rombo relleno = composición · rombo vacío = agregación · línea continua = asociación · línea punteada sin flecha = referencia lógica entre servicios (id sin FK, porque cada base pertenece a un servicio) · flecha punteada = dependencia (uso de un contrato o entidad) · los números son la multiplicidad en cada extremo.
 
@@ -354,9 +354,9 @@ registro por cada instancia del servicio.
 
 El mapa de componentes está en la [Figura 1](#vista-general). Secuencia representativa (pedido y pago, incluidas las fallas):
 
-![Secuencia de compra y pago](docs/diagramas/img/04-secuencia-compra.png)
+![Secuencia de compra y pago](imagenes/04-secuencia-compra.png)
 
-<sub>Figura 3 · Secuencia: crear pedido, reservar stock, pagar con Webpay y confirmar · [ver en alta resolución (SVG)](docs/diagramas/img/04-secuencia-compra.svg) · [fuente editable](docs/diagramas/04-secuencia-compra.mmd)</sub>
+<sub>Figura 3 · Secuencia: crear pedido, reservar stock, pagar con Webpay y confirmar · [ver en alta resolución (SVG)](imagenes/04-secuencia-compra.svg) · [fuente editable](docs/diagramas/04-secuencia-compra.mmd)</sub>
 
 
 | Sistema | Responsabilidad | Datos que administra (autoridad) | Servicios | Dependencias | Contrato de integración | Credencial requerida | Respuesta ante fallos |
@@ -448,9 +448,9 @@ usuario no puede consultar pedidos de otro.
 ## 5. Módulo 5 — API Gateway y fronteras de confianza
 
 
-![UML del API Gateway](docs/diagramas/img/02-uml-gateway.png)
+![UML del API Gateway](imagenes/02-uml-gateway.png)
 
-<sub>Figura 4 · UML del API Gateway, políticas, SecretProvider y GraphQL Gateway · [ver en alta resolución (SVG)](docs/diagramas/img/02-uml-gateway.svg) · [fuente editable](docs/diagramas/02-uml-gateway.mmd)</sub>
+<sub>Figura 4 · UML del API Gateway, políticas, SecretProvider y GraphQL Gateway · [ver en alta resolución (SVG)](imagenes/02-uml-gateway.svg) · [fuente editable](docs/diagramas/02-uml-gateway.mmd)</sub>
 
 
 **¿Cuántos gateways?** **Uno solo**, con políticas por ruta (`access`, `roles`, `rate`). Las rutas anónimas,
@@ -483,9 +483,9 @@ políticas, la separación en cuatro sistemas, los secretos por tramo y las prue
 
 ### Recorrido de una solicitud autorizada y una denegada
 
-![Solicitud autorizada y denegada](docs/diagramas/img/05-secuencia-autorizada-denegada.png)
+![Solicitud autorizada y denegada](imagenes/05-secuencia-autorizada-denegada.png)
 
-<sub>Figura 5 · Misma regla de propiedad: Javiera ve su pedido (200), Matías recibe 404, sin token o llamando directo al servicio: 401 · [ver en alta resolución (SVG)](docs/diagramas/img/05-secuencia-autorizada-denegada.svg) · [fuente editable](docs/diagramas/05-secuencia-autorizada-denegada.mmd)</sub>
+<sub>Figura 5 · Misma regla de propiedad: Javiera ve su pedido (200), Matías recibe 404, sin token o llamando directo al servicio: 401 · [ver en alta resolución (SVG)](imagenes/05-secuencia-autorizada-denegada.svg) · [fuente editable](docs/diagramas/05-secuencia-autorizada-denegada.mmd)</sub>
 
 
 ---
@@ -985,8 +985,9 @@ nonna-backend/
 ├── db/                  ← script MySQL del equipo (con marcadores CAMBIAR_*)
 ├── scripts/             ← run_local, prepare_db, gen_secrets, security_checks, load_test, gen_contract_examples
 ├── tests/               ← 39 pruebas automatizadas
+├── imagenes/            ← diagramas en PNG (alta resolución) y SVG
 └── docs/
-    ├── diagramas/       ← fuentes .mmd editables + img/ (PNG y SVG)
+    ├── diagramas/       ← fuentes .mmd editables de los diagramas
     ├── evidencias/      ← resultados de pruebas y de carga
     └── contratos-ejemplos.md · schema.graphql · informe.md · …
 ```
@@ -1002,4 +1003,4 @@ nonna-backend/
 ---
 
 <a name="diagramas"></a>
-<sub>Diagramas: fuentes Mermaid en `docs/diagramas/*.mmd` (editables en draw.io con *Organizar → Insertar → Avanzado → Mermaid*). Imágenes en `docs/diagramas/img/`. [Volver al índice](#indice)</sub>
+<sub>Diagramas: fuentes Mermaid en `docs/diagramas/*.mmd` (editables en draw.io con *Organizar → Insertar → Avanzado → Mermaid*). Imágenes en `imagenes/`. [Volver al índice](#indice)</sub>
