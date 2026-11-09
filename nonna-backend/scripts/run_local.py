@@ -45,7 +45,7 @@ def start(args):
         return 1
     sys.path.insert(0, str(ROOT))
     from scripts.gen_secrets import generate
-    generate(ROOT / "secrets", ROOT / "db" / "nonna_workbench_setup.sql")
+    generate(ROOT / "secrets")
     env = os.environ.copy()
     env.setdefault("SECRETS_DIR", str(ROOT / "secrets"))
     env["PYTHONPATH"] = str(ROOT)

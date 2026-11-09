@@ -2,7 +2,9 @@
 -- La Nonna — instalación completa para MySQL Workbench (MySQL 8.0.16 o superior)
 -- Ejecutar con: File > Open SQL Script > rayo (Execute) o Ctrl+Shift+Enter
 --
--- ANTES DE EJECUTAR: reemplaza (Ctrl+H) las 5 contraseñas CAMBIAR_* por las tuyas.
+-- ANTES DE EJECUTAR: NO edites este archivo. Genera la versión con contraseñas fuertes:
+--   python scripts/prepare_db.py      -> db/generated/setup.sql (fuera de git)
+-- y ejecuta ESE archivo en Workbench. Este archivo del repositorio solo tiene marcadores CAMBIAR_*.
 -- ADVERTENCIA: este script BORRA y vuelve a crear las 5 bases nonna_*.
 -- =====================================================================
 
@@ -26,11 +28,11 @@ DROP USER IF EXISTS 'svc_inventory'@'localhost';
 DROP USER IF EXISTS 'svc_orders'@'localhost';
 DROP USER IF EXISTS 'svc_payments'@'localhost';
 
-CREATE USER 'svc_auth'@'localhost'      IDENTIFIED BY 'usuario';
-CREATE USER 'svc_clients'@'localhost'   IDENTIFIED BY 'Clientes';
-CREATE USER 'svc_inventory'@'localhost' IDENTIFIED BY 'Inventario';
-CREATE USER 'svc_orders'@'localhost'    IDENTIFIED BY 'ordenes';
-CREATE USER 'svc_payments'@'localhost'  IDENTIFIED BY 'Pagos';
+CREATE USER 'svc_auth'@'localhost'      IDENTIFIED BY 'CAMBIAR_AUTH';
+CREATE USER 'svc_clients'@'localhost'   IDENTIFIED BY 'CAMBIAR_CLIENTS';
+CREATE USER 'svc_inventory'@'localhost' IDENTIFIED BY 'CAMBIAR_INVENTORY';
+CREATE USER 'svc_orders'@'localhost'    IDENTIFIED BY 'CAMBIAR_ORDERS';
+CREATE USER 'svc_payments'@'localhost'  IDENTIFIED BY 'CAMBIAR_PAYMENTS';
 
 GRANT SELECT, INSERT, UPDATE         ON nonna_auth.*      TO 'svc_auth'@'localhost';
 GRANT SELECT, INSERT, UPDATE         ON nonna_clients.*   TO 'svc_clients'@'localhost';

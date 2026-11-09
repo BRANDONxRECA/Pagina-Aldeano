@@ -1,0 +1,44 @@
+---
+title: "Módulo 5 · Recorrido de una solicitud autorizada y de una denegada"
+---
+sequenceDiagram
+    autonumber
+    actor J as Javiera (CLIENTE)
+    actor M as Matías (CLIENTE)
+    participant GW as API Gateway
+    participant SP as SecretProvider
+    participant O as orders
+    participant CL as clients
+
+    rect rgb(225, 245, 225)
+    Note over J,CL: Autorizada: Javiera consulta SU pedido
+    J->>GW: GET /api/v1/orders/P-1042 · Bearer JWT
+    GW->>SP: jwt-public-key
+    GW->>GW: firma, iss, aud y exp OK · ruta S23 AUTH · rate OK
+    GW->>SP: svc-api-gateway-to-orders
+    GW->>O: GET /orders/P-1042 · X-Service-* + X-User-Id=1
+    O->>O: require_user: credencial de servicio válida
+    O->>CL: by-user/1 → client_id=1
+    O->>O: pedido.client_id == 1 ✔
+    O-->>GW: 200 PedidoDTO
+    GW-->>J: 200
+    end
+
+    rect rgb(250, 225, 225)
+    Note over M,CL: Denegada: Matías intenta ver el pedido de Javiera
+    M->>GW: GET /api/v1/orders/P-1042 · Bearer JWT · X-User-Id: 1 (falsificada)
+    GW->>GW: JWT válido · descarta X-User-Id del navegador y usa sub=2
+    GW->>O: GET /orders/P-1042 · X-User-Id=2
+    O->>CL: by-user/2 → client_id=2
+    O->>O: pedido.client_id (1) ≠ 2 ✘
+    O-->>GW: 404 ORDER_NOT_FOUND (sin datos)
+    GW-->>M: 404
+    end
+
+    rect rgb(250, 235, 210)
+    Note over M,O: Denegada en el borde: sin token o llamada directa
+    M->>GW: GET /api/v1/orders (sin token)
+    GW-->>M: 401 UNAUTHENTICATED (no llega a orders)
+    M-xO: GET http://orders:8004/orders (directo)
+    O-->>M: 401 SERVICE_UNAUTHENTICATED (y en Docker ni siquiera hay ruta de red)
+    end

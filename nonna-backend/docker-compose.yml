@@ -1,5 +1,5 @@
 # Despliegue reproducible con separación de red.
-#   1) python scripts/gen_secrets.py --db-from-sql db/nonna_workbench_setup.sql
+#   1) python scripts/prepare_db.py   (secretos + db/generated/setup-docker.sql con usuarios @%)
 #   2) docker compose up --build
 # Solo el API Gateway publica un puerto (8000). Todo lo demás vive en la red "privada"
 # (internal: true -> sin salida ni entrada desde fuera). Cada contenedor recibe SOLO los
@@ -31,11 +31,11 @@ services:
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql-root-password
     secrets: [mysql-root-password]
     volumes:
-      - ./db/nonna_workbench_setup.sql:/docker-entrypoint-initdb.d/01-setup.sql:ro
+      - ./db/generated/setup-docker.sql:/docker-entrypoint-initdb.d/01-setup.sql:ro
       - mysql-data:/var/lib/mysql
     networks: [privada]
-    # Nota: el script crea los usuarios svc_* @'localhost'. En contenedores deben ser @'%'
-    # (o la subred de la red privada); ver README, sección Docker.
+    # setup-docker.sql crea los usuarios svc_* @'%' (se conectan desde otros contenedores
+    # de la red privada; MySQL no publica puertos fuera de esa red).
 
   auth:
     <<: *svc

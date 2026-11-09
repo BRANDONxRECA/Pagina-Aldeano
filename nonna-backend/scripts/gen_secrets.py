@@ -2,8 +2,8 @@
 
 Uso:
     python scripts/gen_secrets.py                      # genera claves y tokens
-    python scripts/gen_secrets.py --db-from-sql db/nonna_workbench_setup.sql
-        # además copia las contraseñas de los usuarios svc_* desde el script SQL
+    python scripts/gen_secrets.py --db-from-sql mi_script.sql
+        # solo si YA crearon los usuarios svc_* con contraseñas propias: las copia desde ese SQL
 
 Cada par llamador->destino recibe un token distinto (mínimo privilegio): si se filtra
 el de payments->orders no sirve para llamar a inventory. Rotar = volver a ejecutar
@@ -59,11 +59,15 @@ def generate(target: Path, db_sql: Path | None = None, overwrite: bool = False) 
     put("payments-webhook-secret", secrets.token_urlsafe(32))
     put("provider-api-key", secrets.token_urlsafe(24))
     put("mysql-root-password", secrets.token_urlsafe(24))
+    for svc in ("auth", "clients", "inventory", "orders", "payments"):
+        if not db_sql:  # contraseña fuerte para el usuario svc_<svc> (la usa scripts/prepare_db.py)
+            put(f"db-{svc}-password", secrets.token_urlsafe(24))
 
     if db_sql:
         text = db_sql.read_text(encoding="utf-8")
         for svc, pwd in re.findall(r"CREATE USER 'svc_(\w+)'@'[^']+'\s+IDENTIFIED BY '([^']+)'", text):
-            put(f"db-{svc}-password", pwd)
+            if not pwd.startswith("CAMBIAR_"):
+                put(f"db-{svc}-password", pwd)
     return written
 
 
